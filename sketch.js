@@ -89,9 +89,12 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(960, 540);
+  let cnv = createCanvas(960, 540); // centrado
+  
+  cnv.style('display', 'block');
+  cnv.style('margin', '30px auto');
+  
   textAlign(CENTER, CENTER);
-
   posXBarra = width - 10 - anchoBarraIni;
   posYBarra = 90;
 
