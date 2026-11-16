@@ -5,7 +5,7 @@ body {
     padding: 0;
     font-family: 'Titillium Web', sans-serif;
     background: url('../img/fondo_pasto.jpg') center/cover no-repeat fixed;
-    color: #333;
+    color: ##7c3b1a;
 }
 /* Contenedor principal */
 #contenedor {
