@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body class="pagina-juego">
-    <div id="contenedor">
+    
         <header class="header-inicio">
             <img src="img/tronco.png" alt="Tronco" class="logo-tronco">
             <h1>El Gran Leñador</h1>
@@ -27,7 +27,7 @@
                 <button id="btn-audio-toggle" class="btn-toggle" type="button">Audio: ON</button>
             <!-- </div> -->
         </main>
-    </div>
+   
     <script>
         const STORAGE_KEY_AUDIO = 'audioLeñador';
         const audioGuardado = JSON.parse(localStorage.getItem(STORAGE_KEY_AUDIO) ?? 'true');
