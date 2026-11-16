@@ -29,7 +29,7 @@ function setAudioHabilitado(habilitado) {
 
   const btn = document.getElementById('btn-audio-toggle');
   if (btn) {
-    btn.textContent = audioHabilitado ? '🔊 Audio: ON' : '🔇 Audio: OFF';
+    btn.textContent = audioHabilitado ? 'Audio: ON' : 'Audio: OFF';
     btn.setAttribute('aria-pressed', String(audioHabilitado));
   }
 }
