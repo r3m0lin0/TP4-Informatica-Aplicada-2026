@@ -9,38 +9,6 @@ const STORAGE_KEY_RANKING = 'rankingLeñador';
 const STORAGE_KEY_AUDIO = 'audioLeñador';
 let audioHabilitado = JSON.parse(localStorage.getItem(STORAGE_KEY_AUDIO) ?? 'true');
 
-const paisesDisponibles = [
-  "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda",
-  "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria",
-  "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice",
-  "Benín", "Bielorrusia", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil",
-  "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya",
-  "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Colombia",
-  "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica",
-  "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador",
-  "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España",
-  "Estados Unidos", "Estonia", "Eswatini", "Etiopía", "Filipinas", "Finlandia", "Fiyi",
-  "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala",
-  "Guyana", "Guinea", "Guinea-Bisáu", "Guinea Ecuatorial", "Haití", "Honduras",
-  "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Israel",
-  "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán",
-  "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia",
-  "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar",
-  "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio",
-  "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro",
-  "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria",
-  "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá",
-  "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido",
-  "República Centroafricana", "República Checa", "República Dominicana", "Rumania",
-  "Rusia", "Ruanda", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas",
-  "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona",
-  "Singapur", "Siria", "Somalia", "Sri Lanka", "Sudáfrica", "Sudán", "Sudán del Sur",
-  "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental",
-  "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu",
-  "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Vaticano", "Venezuela",
-  "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue"
-];
-
 // Función para mostrar el formulario al inicio
 function obtenerJugadorGuardado() {
   const guardado = JSON.parse(localStorage.getItem(STORAGE_KEY_JUGADOR) || 'null');
@@ -92,11 +60,7 @@ function mostrarFormularioInicio() {
     <p>Ingresa tus datos para comenzar:</p>
     <input type="text" id="inp-nombre" placeholder="Tu Apodo">
     <br>
-    <div style="max-height: 220px; overflow-y: auto; border: 1px solid rgba(255,255,255,0.35); border-radius: 8px; margin: 8px auto; background: rgba(255,255,255,0.08); width: 85%; padding: 6px; box-sizing: border-box;">
-      <select id="inp-pais" size="8" style="width: 100%; min-height: 160px; background: rgba(255,255,255,0.1); color: #fff; border: none; border-radius: 6px; padding: 8px; font-size: 14px;">
-        ${paisesDisponibles.map(pais => `<option value="${pais}">${pais}</option>`).join('')}
-      </select>
-    </div>
+    <input type="text" id="inp-pais" placeholder="Tu País" style="width:85%; padding:10px; border-radius:8px; border:none; margin-bottom:10px;">
     <div style="margin-top: 12px; text-align: left; width: 85%; margin-left: auto; margin-right: auto;">
       <label style="display:block; margin-bottom:12px; font-weight:600;">Elegí tu herramienta:</label>
       <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
@@ -160,16 +124,16 @@ function mostrarPantallaDerrota(puntos, tiempoRestante, anchoBarraIni, textoMens
   form.style.background = 'rgba(103, 55, 58, 0.95)'; // Color Bordó
 
   form.innerHTML = `
-    <h2 style="margin-top:0;">💀 ¡Juego Terminado!</h2>
+    <h2 style="margin-top:0;">¡Juego Terminado!</h2>
     <p style="font-size:18px;">${textoMensaje}</p>
     <p>Puntos: <strong>${puntos}</strong> | Tiempo: <strong>${tiempoJugado}s</strong></p>
     <p>Jugador: ${jugadorNombre} (${jugadorPais})</p>
     <p>Hacha: <strong>${jugadorColor || 'rojo'}</strong></p>
     <div style="display:flex; gap:10px; justify-content:center; margin-top:20px; flex-wrap: wrap;">
-      <button id="btn-reintentar" class="btn-reintentar">🔄 Jugar de Nuevo</button>
-      <button id="btn-cambiar-usuario" class="btn-ranking">👤 Cambiar de Usuario</button>
-      <button id="btn-audio-toggle" class="btn-toggle">${audioHabilitado ? '🔊 Audio: ON' : '🔇 Audio: OFF'}</button>
-      <button id="btn-ranking" class="btn-ranking">🏆 Ver Ranking</button>
+      <button id="btn-reintentar" class="btn-reintentar">Jugar de Nuevo</button>
+      <button id="btn-cambiar-usuario" class="btn-ranking">Cambiar de Usuario</button>
+      <button id="btn-audio-toggle" class="btn-toggle">${audioHabilitado ? 'Audio: ON' : 'Audio: OFF'}</button>
+      <button id="btn-ranking" class="btn-ranking">Ver Ranking</button>
     </div>
   `;
 
@@ -197,7 +161,7 @@ function mostrarPantallaDerrota(puntos, tiempoRestante, anchoBarraIni, textoMens
 
   document.getElementById('btn-audio-toggle').onclick = function() {
     toggleAudio();
-    this.textContent = audioHabilitado ? '🔊 Audio: ON' : '🔇 Audio: OFF';
+    this.textContent = audioHabilitado ? 'Audio: ON' : 'Audio: OFF';
   };
 
   document.getElementById('btn-ranking').onclick = function() {
