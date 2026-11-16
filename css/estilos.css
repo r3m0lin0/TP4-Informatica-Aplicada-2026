@@ -1,17 +1,11 @@
 /* Estilos generales */
-canvas {
-    display: block !important;
-    margin: 30px auto !important;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-    border-radius: 8px;
-}
-
-body.pagina-juego {
+body {
+    align-items: center;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    font-family: 'Titillium Web', sans-serif;
     background: url('../img/fondo_pasto.jpg') center/cover no-repeat fixed;
-    overflow-x: hidden;
+    color: #333;
 }
 /* Contenedor principal */
 #contenedor {
