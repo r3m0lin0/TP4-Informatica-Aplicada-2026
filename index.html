@@ -24,7 +24,7 @@
                 <a href="juego.html"><button class="btn-jugar">COMENZAR A JUGAR</button></a>
                 <button id="btn-cambiar-usuario" class="btn-ranking">CAMBIAR DE USUARIO</button>
                 <a href="ranking.php"><button class="btn-ranking">VER RANKING</button></a>
-                <button id="btn-audio-toggle" class="btn-toggle" type="button">🔊 Audio: ON</button>
+                <button id="btn-audio-toggle" class="btn-toggle" type="button">Audio: ON</button>
             </div>
         </main>
     </div>
@@ -32,12 +32,12 @@
         const STORAGE_KEY_AUDIO = 'audioLeñador';
         const audioGuardado = JSON.parse(localStorage.getItem(STORAGE_KEY_AUDIO) ?? 'true');
         const btnAudio = document.getElementById('btn-audio-toggle');
-        btnAudio.textContent = audioGuardado ? '🔊 Audio: ON' : '🔇 Audio: OFF';
+        btnAudio.textContent = audioGuardado ? 'Audio: ON' : 'Audio: OFF';
 
         btnAudio.addEventListener('click', function() {
             const nuevoEstado = !(JSON.parse(localStorage.getItem(STORAGE_KEY_AUDIO) ?? 'true'));
             localStorage.setItem(STORAGE_KEY_AUDIO, JSON.stringify(nuevoEstado));
-            btnAudio.textContent = nuevoEstado ? '🔊 Audio: ON' : '🔇 Audio: OFF';
+            btnAudio.textContent = nuevoEstado ? 'Audio: ON' : 'Audio: OFF';
         });
 
         document.getElementById('btn-cambiar-usuario').addEventListener('click', function() {
