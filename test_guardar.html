@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>Test guardar_alta.php</title></head>
+<body style="font-family:sans-serif; padding:30px;">
+  <h2>Prueba de guardar_alta.php</h2>
+  <button id="b" style="font-size:18px; padding:10px 20px;">Guardar puntaje de prueba</button>
+  <p>Respuesta del servidor: <strong id="r">(todavía nada)</strong></p>
+  <script>
+    document.getElementById('b').onclick = async () => {
+      const datos = new URLSearchParams({
+        nombre_jugador: 'PruebaMica', pais: 'Argentina', color: 'hacha',
+        puntaje: 42, nivel: 1, tiempo_seg: 30
+      });
+      const res = await fetch('guardar_alta.php', { method: 'POST', body: datos });
+      document.getElementById('r').textContent = await res.text();
+    };
+  </script>
+</body></html>
