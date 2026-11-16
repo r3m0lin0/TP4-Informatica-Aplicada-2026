@@ -1,20 +1,28 @@
 /* Estilos generales */
-body {
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    font-family: 'Titillium Web', sans-serif; /* Usando una de tus fuentes */
-    background: url('../img/fondo_pasto.jpg') center/cover no-repeat fixed;
-    color: #333;
+/* =========================================
+   CENTRADO DEL CANVAS DE P5.JS
+   ========================================= */
+
+canvas {
+    display: block !important;
+    margin: 30px auto !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6) !important;
+    border-radius: 8px !important;
+    position: relative !important;
 }
 
-/* Contenedor principal */
-#contenedor {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.12);
+body {
+    margin: 0 !important;
+    padding: 0 !important;
     min-height: 100vh;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background: url('../img/fondo_pasto.jpg') center/cover no-repeat fixed !important;
+    overflow-x: hidden;
+}
+
+#contenedor {
+    background: transparent !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
 }
 
 
