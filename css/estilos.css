@@ -6,6 +6,14 @@ body {
     font-family: 'Titillium Web', sans-serif;
     background: #7c3b1a;
 }
+
+body.pagina-juego {
+    background-color: #5C7369; /* Verde grisáceo */
+    /* Si querés mantener la imagen de pasto pero oscurecida: */
+    background: linear-gradient(rgba(92, 115, 105, 0.85), rgba(92, 115, 105, 0.85)), 
+                url('../img/fondo_pasto.jpg') center/cover no-repeat fixed;
+}
+
 /* Contenedor principal */
 #contenedor {
     max-width: 1200px;
