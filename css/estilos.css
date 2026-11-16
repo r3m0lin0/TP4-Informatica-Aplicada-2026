@@ -1,17 +1,5 @@
 /* Estilos generales */
-
-canvas {
-    display: block !important;     
-    margin: 20px auto !important;  
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-    position: relative !important;
-}
-
 body {
-    overflow-x: hidden;             
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     margin: 0;
     padding: 0;
@@ -224,12 +212,4 @@ tr:nth-child(even) {
 .columnas5 p {
     font-size: 1.05rem;
     line-height: 1.6;
-}
-
-/* centrar web */
-.pagina-juego {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
 }
